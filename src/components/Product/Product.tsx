@@ -4,6 +4,7 @@ import "./Product.css";
 type Colour = "green" | "blue" | "orange" | "pink" | "black" | "white";
 
 export interface ProductProps {
+    id: number;
     title: string;
     description: string;
     imgSrc: string;
@@ -13,6 +14,7 @@ export interface ProductProps {
 }
 
 export const Product = ({
+    id,
     title,
     description,
     imgSrc,
@@ -32,7 +34,7 @@ export const Product = ({
                             backgroundColour="green"
                         />
                     )}
-                    <a href="/">
+                    <a href={`/${id}`}>
                         <img src={imgSrc} alt={title} width="450px" />
                     </a>
                 </div>

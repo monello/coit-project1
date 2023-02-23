@@ -1,0 +1,9 @@
+.shop-filters {
+    margin-top: 2rem;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
