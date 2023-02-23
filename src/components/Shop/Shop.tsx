@@ -10,6 +10,7 @@ const products: ProductProps[] = [
         description: "5-Piece Set of Cookware Essentials",
         imgSrc: "./family-style.webp",
         price: 615,
+        color: "green",
         colors: ["green", "blue", "orange", "pink", "black", "white"],
         saving: 120,
     },
@@ -19,6 +20,7 @@ const products: ProductProps[] = [
         description: "3-Piece Set of Cookware &amp; Bakeware for Beginners",
         imgSrc: "./starter-lineup.webp",
         price: 218,
+        color: "pink",
         colors: ["pink", "green", "blue", "orange"],
         saving: 58,
     },
@@ -28,6 +30,7 @@ const products: ProductProps[] = [
         description: "6.75-Quart cast-Iron Dutch Oven",
         imgSrc: "./the-dutches.webp",
         price: 160,
+        color: "blue",
         colors: ["green", "blue", "orange", "pink", "black", "white"],
     },
     {

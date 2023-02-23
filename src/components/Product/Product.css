@@ -14,3 +14,12 @@
     border-radius: 5px;
     overflow: hidden;
 }
+.discounted {
+    text-decoration: line-through;
+    color: rgb(160, 159, 159);
+    margin-right: 1rem;
+}
+
+.colors-container {
+    padding: 2em;
+}

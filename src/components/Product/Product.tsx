@@ -1,4 +1,5 @@
 import { Badge } from "../Badge/Badge";
+import { Selector } from "../Selector/Selector";
 import "./Product.css";
 
 type Colour = "green" | "blue" | "orange" | "pink" | "black" | "white";
@@ -10,6 +11,7 @@ export interface ProductProps {
     imgSrc: string;
     price: number;
     saving?: number;
+    color?: string;
     colors?: Colour[];
 }
 
@@ -20,6 +22,7 @@ export const Product = ({
     imgSrc,
     price,
     saving,
+    color,
     colors,
 }: ProductProps) => {
     const discountedPrice = saving ? price - saving : 0;
@@ -41,9 +44,20 @@ export const Product = ({
                 <h2>{title}</h2>
                 <p>{description}</p>
                 <p>
-                    {!!saving && "$" + discountedPrice} ${price}
+                    <span className={!!saving ? "discounted" : ""}>
+                        ${price}
+                    </span>
+                    {!!saving && "$" + discountedPrice}
                 </p>
-                <div>{!!colors && colors?.join(" ")}</div>
+                <div className="colors-container">
+                    {!!colors &&
+                        colors.map((itemColor) => (
+                            <Selector
+                                color={itemColor}
+                                selected={color === itemColor}
+                            />
+                        ))}
+                </div>
             </div>
         </>
     );
