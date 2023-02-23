@@ -5,7 +5,7 @@ function App() {
     return (
         <div className="App flex-container">
             <header id="header" className="flex-item">
-                Header goes here
+                <p>Free shipping $100+, 60-day trial, free returns</p>
             </header>
             <nav className="flex-item">Navigation here</nav>
             <section id="hero-block" className="flex-item">

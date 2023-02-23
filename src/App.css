@@ -5,22 +5,31 @@
 header {
     background-color: #960047;
     color: white;
+    padding: 0.5em;
 }
 
 nav {
     background-color: #faeddf;
+    padding: 1em;
 }
 
 #hero-block {
     background-color: lightgray;
     color: white;
+    background: url("/public/BFCM_Homepage_Heros_3_1440x810_crop_center.webp");
+    background-position: top center;
+    background-size: 1946px 873px;
+    background-repeat: no-repeat;
+    height: 870px;
 }
 
 #brand-container {
     background-color: #0e5540;
     color: #f4a620;
+    padding: 20px 20px 110px;
 }
 
 #shop-container {
     background-color: #faeddf;
+    padding: 0.5em;
 }
