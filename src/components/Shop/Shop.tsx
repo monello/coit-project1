@@ -17,7 +17,7 @@ const products: ProductProps[] = [
     {
         id: 2,
         title: "The Starter Lineup",
-        description: "3-Piece Set of Cookware &amp; Bakeware for Beginners",
+        description: "3-Piece Set of Cookware & Bakeware for Beginners",
         imgSrc: "./starter-lineup.webp",
         price: 218,
         color: "pink",
@@ -36,7 +36,7 @@ const products: ProductProps[] = [
     {
         id: 4,
         title: "The Fry Family",
-        description: '8" &amp; 10" Ceramic Nonstick Set',
+        description: '8" & 10" Ceramic Nonstick Set',
         imgSrc: "./the-fry-family.webp",
         price: 160,
         saving: 15,
