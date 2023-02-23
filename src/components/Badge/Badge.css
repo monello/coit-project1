@@ -1,0 +1,15 @@
+.badge {
+    display: inline-block;
+    position: absolute;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 1rem;
+    line-height: 138%;
+    padding: 1px 5px;
+    top: 20px;
+    right: 20px;
+}
+
+.badge.green {
+    background: #0e5540;
+}

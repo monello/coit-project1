@@ -1,0 +1,16 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-top: 36px;
+    box-sizing: border-box;
+    margin: 52px 0 0;
+    padding: 0 10px;
+}
+
+.product-top {
+    background-color: #ede1d4;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
