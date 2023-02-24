@@ -42,24 +42,6 @@ nav {
     font-size: 1.5em;
     line-height: 2.5;
 }
-button.hero {
-    border: 1px solid #f4a620;
-    background: none;
-    box-shadow: none;
-    background-color: #f4a620;
-    color: #000;
-    padding: 12px 20px;
-    font-size: 1.125rem;
-    font-weight: 700;
-    border-radius: 5px;
-    margin-top: 1em;
-    padding: 1em 4em;
-}
-
-button.hero:hover {
-    background-color: #faeddf;
-    color: #0e5540;
-}
 
 #brand-container {
     background-color: #0e5540;

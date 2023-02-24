@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button";
 import { Filter } from "../Filter/Filter";
 import { Product, ProductProps } from "../Product/Product";
 
@@ -86,7 +87,14 @@ export const Shop = () => {
                 ))}
             </div>
             <div className="shop-cta">
-                <button className="cta">Shop All</button>
+                <Button
+                    variant="cta"
+                    onClick={() => {
+                        console.log("You clicked the Shop Button");
+                    }}
+                >
+                    Shop All
+                </Button>
             </div>
         </>
     );
