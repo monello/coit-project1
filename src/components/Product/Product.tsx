@@ -53,6 +53,7 @@ export const Product = ({
                     {!!colors &&
                         colors.map((itemColor) => (
                             <Selector
+                                key={itemColor}
                                 color={itemColor}
                                 selected={color === itemColor}
                             />
