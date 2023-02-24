@@ -27,10 +27,14 @@ function App() {
                 <NavContainer {...navigationItems} />
             </nav>
             <section id="hero-block" className="flex-item">
-                Hero Block Here
+                <div className="hero-content">
+                    <h1>Introducing Glassware!</h1>
+                    <p>Meet Beyond Measure &amp; Sprout</p>
+                    <button className="hero">Shop Now</button>
+                </div>
             </section>
             <section id="brand-container" className="flex-item">
-                Tagline Block Here
+                Tagline Block
             </section>
             <main id="shop-container" className="flex-item">
                 <Shop />
