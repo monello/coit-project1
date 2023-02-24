@@ -1,4 +1,4 @@
-import { NavItem, NavItemProps } from "../Product/NavItem/NavItem";
+import { NavItem, NavItemProps } from "../../NavItem/NavItem";
 import "./NavContainer.css";
 
 export interface NavItems {
@@ -7,14 +7,19 @@ export interface NavItems {
 }
 
 export const NavContainer = ({ left, right }: NavItems) => {
-    const leftMenu = left.map((item) => <NavItem {...item} />);
-    const rightMenu = right.map((item) => <NavItem {...item} />);
-
     return (
         <div className="nav-container">
-            <div className="nav-items">{leftMenu}</div>
+            <div className="nav-items">
+                {left.map((item) => (
+                    <NavItem key={item.label} {...item} />
+                ))}
+            </div>
             <div className="nav-items">[LOGO]</div>
-            <div className="nav-items">{rightMenu}</div>
+            <div className="nav-items">
+                {right.map((item) => (
+                    <NavItem key={item.label} {...item} />
+                ))}
+            </div>
         </div>
     );
 };
