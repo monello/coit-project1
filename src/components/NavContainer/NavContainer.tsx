@@ -1,4 +1,4 @@
-import { NavItem, NavItemProps } from "../../NavItem/NavItem";
+import { NavItem, NavItemProps } from "../NavItem/NavItem";
 import "./NavContainer.css";
 
 export interface NavItems {
