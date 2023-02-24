@@ -11,7 +11,7 @@ const navigationItems: NavItems = {
     ],
     right: [
         { label: "Ingredients", href: "/ingredients" },
-        { label: "Recipes", href: "/recipes" },
+        { label: "Recipes +", href: "/recipes" },
         { label: "About", href: "/baskeware" },
         { label: "Account", href: "/account" },
     ],

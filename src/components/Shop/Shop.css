@@ -7,3 +7,24 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.shop-cta {
+    padding-bottom: 100px;
+}
+
+button.cta {
+    border: 1px solid #0e5540;
+    background: none;
+    box-shadow: none;
+    background-color: #0e5540;
+    color: #faeddf;
+    padding: 12px 20px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+button.cta:hover {
+    background-color: #faeddf;
+    color: #0e5540;
+}

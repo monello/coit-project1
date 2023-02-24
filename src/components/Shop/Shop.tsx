@@ -85,6 +85,9 @@ export const Shop = () => {
                     <Product key={product.id} {...product} />
                 ))}
             </div>
+            <div className="shop-cta">
+                <button className="cta">Shop All</button>
+            </div>
         </>
     );
 };
