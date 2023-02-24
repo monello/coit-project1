@@ -1,6 +1,6 @@
-import { Button } from "../Button/Button";
-import { Filter } from "../Filter/Filter";
-import { Product, ProductProps } from "../Product/Product";
+import { Button } from "../Button";
+import { Filter } from "../Filter";
+import { Product, ProductProps } from "../Product";
 
 import "./Shop.css";
 

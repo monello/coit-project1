@@ -1,7 +1,7 @@
-import { Shop } from "./components/Shop/Shop";
+import { Shop } from "./components/Shop";
 import { NavContainer, NavItems } from "./components/NavContainer/NavContainer";
+import { HeroContent } from "./components/HeroContent/HeroContent";
 import "./App.css";
-import { Button } from "./components/Button/Button";
 
 const navigationItems: NavItems = {
     left: [
@@ -28,18 +28,7 @@ function App() {
                 <NavContainer {...navigationItems} />
             </nav>
             <section id="hero-block" className="flex-item">
-                <div className="hero-content">
-                    <h1>Introducing Glassware!</h1>
-                    <p>Meet Beyond Measure &amp; Sprout</p>
-                    <Button
-                        variant="hero"
-                        onClick={() => {
-                            console.log("you clicked the hero button");
-                        }}
-                    >
-                        Shop Now
-                    </Button>
-                </div>
+                <HeroContent />
             </section>
             <section id="brand-container" className="flex-item">
                 Tagline Block

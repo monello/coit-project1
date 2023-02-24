@@ -1,5 +1,5 @@
-import { Badge } from "../Badge/Badge";
-import { Selector } from "../Selector/Selector";
+import { Badge } from "../Badge";
+import { Selector } from "../Selector";
 import "./Product.css";
 
 type Colour = "green" | "blue" | "orange" | "pink" | "black" | "white";
