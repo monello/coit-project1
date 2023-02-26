@@ -18,7 +18,8 @@ interface Book {
 }
 
 interface BooksListState {
-    loading: boolean;
+    isLoading: boolean;
+    error: any;
     books: Book[];
 }
 
@@ -27,20 +28,70 @@ export class BooksList extends Component<{}, BooksListState> {
         super(props);
 
         this.state = {
-            loading: true,
+            isLoading: true,
+            error: "",
             books: [],
         };
     }
 
+    // // this examples uses the fetch->then->catch approach to process promises + .catch()
+    // componentDidMount() {
+    //     const url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:stephen+king&printType=books&maxResults=20`;
+    //     fetch(url, {
+    //         method: `GET`,
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             this.setState({
+    //                 ...this.state,
+    //                 error: "",
+    //                 isLoading: false,
+    //                 books: data.items,
+    //             });
+    //         })
+    //         .catch((error) => {
+    //             this.setState({
+    //                 ...this.state,
+    //                 error: error,
+    //                 isLoading: false,
+    //             });
+    //         });
+    // }
+
+    // this example uses the async-await approach to handle promises + try-catch
     async componentDidMount() {
         const url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:stephen+king&printType=books&maxResults=20`;
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({
-            ...this.state,
-            loading: false,
-            books: data.items,
-        });
+        try {
+            const response = await fetch(url, {
+                method: `GET`,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const data = await response.json();
+            this.setState({
+                ...this.state,
+                isLoading: false,
+                books: data.items,
+            });
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                this.setState({
+                    ...this.state,
+                    isLoading: false,
+                    error: `The following error occured while trying to fetch the books: ${error.message}`,
+                });
+            } else {
+                this.setState({
+                    ...this.state,
+                    isLoading: false,
+                    error: "An unexpected error occured when trying to fetch the books",
+                });
+            }
+        }
     }
 
     render() {
@@ -57,12 +108,12 @@ export class BooksList extends Component<{}, BooksListState> {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.loading && (
+                        {this.state.isLoading && (
                             <tr>
-                                <td colSpan={4}>Loading...</td>
+                                <td colSpan={4}>isLoading...</td>
                             </tr>
                         )}
-                        {!this.state.loading &&
+                        {!this.state.isLoading &&
                             this.state.books.map((book) => (
                                 <tr key={book.id}>
                                     <td>{book.volumeInfo.title}</td>
@@ -86,6 +137,11 @@ export class BooksList extends Component<{}, BooksListState> {
                                     </td>
                                 </tr>
                             ))}
+                        {!!this.state.error && (
+                            <tr>
+                                <td colSpan={4}>{this.state.error}</td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
