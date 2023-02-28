@@ -1,12 +1,17 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "./components";
+import { NoMatch, CreateIssue, Dashboard } from "./pages";
 
-function App() {
+export default function App() {
     return (
         <div>
-            <div>HEADER HERE</div>
-            <div>CARDS HERE</div>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="create" element={<CreateIssue />} />
+                    <Route path="*" element={<NoMatch />} />
+                </Route>
+            </Routes>
         </div>
     );
 }
-
-export default App;
