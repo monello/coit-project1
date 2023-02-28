@@ -1,22 +1,19 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Header } from "../Header";
+
+import "./Layout.css";
 
 export const Layout = () => {
     return (
         <div>
             <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Dashboard</Link>
-                    </li>
-                    <li>
-                        <Link to="/create">Create Ticket</Link>
-                    </li>
-                </ul>
+                <Header />
             </nav>
-
-            <hr />
-
-            <Outlet />
+            <main>
+                <div className="container">
+                    <Outlet />
+                </div>
+            </main>
         </div>
     );
 };
