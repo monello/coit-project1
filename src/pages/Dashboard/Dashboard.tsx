@@ -1,44 +1,42 @@
+import { useEffect, useState } from "react";
 import { Card } from "../../components";
 
 import { CardProps } from "../../components";
 
-const cards: CardProps[] = [
-    {
-        id: 1,
-        heading: "Ticket 1",
-        description: "Ticket 1 description",
-        tags: ["tag1", "tag2", "tag3"],
-        status: "Pending",
-    },
-    {
-        id: 2,
-        heading: "Ticket 2",
-        description: "Ticket 2 description",
-        tags: ["tag1", "tag2", "tag3"],
-        status: "In Progress",
-    },
-    {
-        id: 3,
-        heading: "Ticket 3",
-        description: "Ticket 3 description",
-        tags: ["tag1", "tag2", "tag3"],
-        status: "Impeded",
-    },
-    {
-        id: 4,
-        heading: "Ticket 4",
-        description: "Ticket 4 description",
-        tags: ["tag1", "tag2", "tag3"],
-        status: "Done",
-    },
-];
-
 export const Dashboard = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState("");
+    const [cards, setCards] = useState<CardProps[]>([]);
+
+    useEffect(() => {
+        const url = `http://localhost:3500/cards`;
+        fetch(url, {
+            method: `GET`,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setCards(data);
+                setError("");
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                setIsLoading(false);
+                setError(`There was an error loading the cards: ${error}`);
+            });
+    }, []);
+
     return (
         <>
-            {cards.map((card) => (
-                <Card key={card.id} {...card} />
-            ))}
+            {!!error && <>{error}</>}
+            {isLoading && <>Loading cards ... </>}
+            {cards.length > 0 &&
+                cards.map((card) => <Card key={card.id} {...card} />)}
+            {!error && !isLoading && cards.length === 0 && (
+                <>There are currently no cards to load</>
+            )}
         </>
     );
 };
