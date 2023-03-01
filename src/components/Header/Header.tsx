@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 
@@ -6,10 +6,10 @@ export const Header = () => {
     return (
         <ul className="menu">
             <li className="item">
-                <Link to="/">Dashboard</Link>
+                <NavLink to="/">Dashboard</NavLink>
             </li>
-            <li className="item button">
-                <Link to="/create">Create Ticket</Link>
+            <li className="item">
+                <NavLink to="/create">Create Ticket</NavLink>
             </li>
         </ul>
     );

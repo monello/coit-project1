@@ -21,3 +21,13 @@ ul.menu {
 .menu > li.item a:hover {
     background-color: #111111;
 }
+
+.menu > li.item .active {
+    background-color: #2c2cf7;
+    color: #fff;
+}
+
+.menu > li.item .active:hover {
+    background-color: #4242fa;
+    color: #fff;
+}
