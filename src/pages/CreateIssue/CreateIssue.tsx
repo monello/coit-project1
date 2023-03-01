@@ -115,13 +115,7 @@ export const CreateIssue = () => {
                         <select
                             name="status"
                             id="status"
-                            onChange={(event) => {
-                                console.log(
-                                    "event.target.value:",
-                                    event.target.value
-                                );
-                                onSelectChange(event);
-                            }}
+                            onChange={onSelectChange}
                             defaultValue={values.status}
                         >
                             {statuses.map(({ variant, label }) => (
