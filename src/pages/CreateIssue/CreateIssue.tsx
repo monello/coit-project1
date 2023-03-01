@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
-
 import { StatusVariant } from "../../components";
 import { Status } from "../../components";
 
 import "./CreateIssue.css";
-import { useEffect, useState } from "react";
 
 interface Issue {
     id?: number;
@@ -15,7 +15,9 @@ interface Issue {
 }
 
 export const CreateIssue = () => {
+    const navigate = useNavigate();
     const [statuses, setStatuses] = useState<Status[]>([]);
+    const [buttonEnabled, setButtonEnabled] = useState(true);
 
     useEffect(() => {
         fetch("http://localhost:3500/statuses")
@@ -41,6 +43,7 @@ export const CreateIssue = () => {
 
     // a submit function that will execute upon form submission
     async function createTicketCallback() {
+        setButtonEnabled(false);
         fetch("http://localhost:3500/cards", {
             method: "POST",
             headers: {
@@ -48,12 +51,16 @@ export const CreateIssue = () => {
             },
             body: JSON.stringify(values),
         })
-            .then(function (res) {
-                console.log("RES: ", res);
-                return res.json();
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.id) {
+                    navigate("/", { replace: true });
+                } else {
+                    throw new Error("data was not successfully saved");
+                }
             })
-            .then(function (data) {})
             .catch((err) => {
+                setButtonEnabled(true);
                 console.error("Error creating a new ticket:", err);
             });
     }
@@ -127,7 +134,11 @@ export const CreateIssue = () => {
                     </label>
                 </div>
                 <div className="cta">
-                    <button className="create" type="submit">
+                    <button
+                        className="create"
+                        type="submit"
+                        disabled={!buttonEnabled}
+                    >
                         Create Ticket
                     </button>
                 </div>
