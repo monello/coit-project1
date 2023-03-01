@@ -1,17 +1,66 @@
-.status {
-    font-weight: 700;
+.dropdown {
+    position: relative;
     text-align: end;
+}
+.dropdown button {
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.dropdown button:hover {
+    opacity: 0.8;
+}
+
+.dropdown button > i {
+    margin-left: 10px;
+}
+
+.status {
+    color: white;
 }
 
 .status.pending {
-    color: darkgrey;
+    background-color: darkgrey;
 }
 .status.in-progress {
-    color: orange;
+    background-color: orange;
 }
 .status.impeded {
-    color: red;
+    background-color: red;
 }
 .status.done {
-    color: green;
+    background-color: green;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: start;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
 }

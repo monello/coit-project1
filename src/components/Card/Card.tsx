@@ -22,6 +22,20 @@ export const Card = ({ heading, description, tags, status }: CardProps) => {
             });
     }, []);
 
+    const handleStatusChange = (
+        event: React.MouseEvent<HTMLAnchorElement>,
+        variant: StatusVariant
+    ) => {
+        event.preventDefault();
+        console.log(
+            `This should change the status to ${variant}, but I don't know how`
+        );
+        const promise = new Promise((resolve) => {
+            resolve(true);
+        });
+        return promise;
+    };
+
     const tagsList = tags.split(",");
     const statusProps = statuses.find((item) => item.variant === status);
     return (
@@ -33,7 +47,12 @@ export const Card = ({ heading, description, tags, status }: CardProps) => {
                     <Tag key={index} name={tag} />
                 ))}
             </div>
-            {!!statusProps && <StatusIndicator {...statusProps} />}
+            {!!statusProps && (
+                <StatusIndicator
+                    {...statusProps}
+                    handleStatusChange={handleStatusChange}
+                />
+            )}
         </div>
     );
 };

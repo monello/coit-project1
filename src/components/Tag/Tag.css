@@ -1,7 +1,8 @@
 .tag {
-    border: 1px solid darkblue;
+    border: 1px solid #bcd9ea;
     border-radius: 5px;
     padding: 2px 5px;
-    background-color: lightblue;
+    background-color: #bcd9ea;
     font-size: 0.75em;
+    color: #172b4d;
 }
