@@ -1,32 +1,21 @@
 {
-    "cards": [
+    "statuses": [
         {
-            "id": 1,
-            "heading": "Ticket 1",
-            "description": "Ticket 1 description",
-            "tags": ["tag1", "tag2", "tag3"],
-            "status": { "variant": "pending", "label": "Pending" }
+            "variant": "pending",
+            "label": "Pending"
         },
         {
-            "id": 2,
-            "heading": "Ticket 2",
-            "description": "Ticket 2 description",
-            "tags": ["tag1", "tag2", "tag3"],
-            "status": { "variant": "in-progress", "label": "In Progress" }
+            "variant": "in-progress",
+            "label": "In Progress"
         },
         {
-            "id": 3,
-            "heading": "Ticket 3",
-            "description": "Ticket 3 description",
-            "tags": ["tag1", "tag2", "tag3"],
-            "status": { "variant": "impeded", "label": "Impeded" }
+            "variant": "impeded",
+            "label": "Impeded"
         },
         {
-            "id": 4,
-            "heading": "Ticket 4",
-            "description": "Ticket 4 description",
-            "tags": ["tag1", "tag2", "tag3"],
-            "status": { "variant": "done", "label": "Done" }
+            "variant": "done",
+            "label": "Done"
         }
-    ]
+    ],
+    "cards": []
 }

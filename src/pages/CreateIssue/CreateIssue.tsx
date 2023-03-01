@@ -1,8 +1,10 @@
 import { useForm } from "../../hooks/useForm";
 
 import { StatusVariant } from "../../components";
+import { Status } from "../../components";
 
 import "./CreateIssue.css";
+import { useEffect, useState } from "react";
 
 interface Issue {
     id?: number;
@@ -13,6 +15,16 @@ interface Issue {
 }
 
 export const CreateIssue = () => {
+    const [statuses, setStatuses] = useState<Status[]>([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3500/statuses")
+            .then((response) => response.json())
+            .then((data) => {
+                setStatuses(data);
+            });
+    }, []);
+
     // defining the initial state for the form
     const initialState: Issue = {
         heading: "",
@@ -29,9 +41,21 @@ export const CreateIssue = () => {
 
     // a submit function that will execute upon form submission
     async function createTicketCallback() {
-        values.id = Math.floor(Math.random() * 10000);
-        // send "values" to database
-        console.log("Creating Ticket as:", values);
+        fetch("http://localhost:3500/cards", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+        })
+            .then(function (res) {
+                console.log("RES: ", res);
+                return res.json();
+            })
+            .then(function (data) {})
+            .catch((err) => {
+                console.error("Error creating a new ticket:", err);
+            });
     }
 
     return (
@@ -91,13 +115,20 @@ export const CreateIssue = () => {
                         <select
                             name="status"
                             id="status"
-                            onChange={onSelectChange}
+                            onChange={(event) => {
+                                console.log(
+                                    "event.target.value:",
+                                    event.target.value
+                                );
+                                onSelectChange(event);
+                            }}
                             defaultValue={values.status}
                         >
-                            <option value="pending">Pending</option>
-                            <option value="in-progress">In Progress</option>
-                            <option value="impeded">Impeded</option>
-                            <option value="done">Done</option>
+                            {statuses.map(({ variant, label }) => (
+                                <option key={variant} value={variant}>
+                                    {label}
+                                </option>
+                            ))}
                         </select>
                     </label>
                 </div>
