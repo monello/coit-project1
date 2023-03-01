@@ -1,4 +1,7 @@
 import { useForm } from "../../hooks/useForm";
+
+import { StatusVariant } from "../../components";
+
 import "./CreateIssue.css";
 
 interface Issue {
@@ -6,7 +9,7 @@ interface Issue {
     heading: string;
     description: string;
     tags: string;
-    status: "pending" | "in-progress" | "impeded" | "done";
+    status: StatusVariant;
 }
 
 export const CreateIssue = () => {
@@ -98,10 +101,12 @@ export const CreateIssue = () => {
                         </select>
                     </label>
                 </div>
+                <div className="cta">
+                    <button className="create" type="submit">
+                        Create Ticket
+                    </button>
+                </div>
             </fieldset>
-            <div className="cta">
-                <button type="submit">Create Ticket</button>
-            </div>
         </form>
     );
 };

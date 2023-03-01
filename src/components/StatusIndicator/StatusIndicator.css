@@ -1,0 +1,17 @@
+.status {
+    font-weight: 700;
+    text-align: end;
+}
+
+.status.pending {
+    color: darkgrey;
+}
+.status.in-progress {
+    color: orange;
+}
+.status.impeded {
+    color: red;
+}
+.status.done {
+    color: green;
+}

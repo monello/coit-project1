@@ -1,4 +1,5 @@
 import { Tag } from "../Tag";
+import { Status, StatusIndicator } from "../StatusIndicator";
 
 import "./Card.css";
 
@@ -7,7 +8,7 @@ export interface CardProps {
     heading: string;
     description: string;
     tags: string[];
-    status: string;
+    status: Status;
 }
 
 export const Card = ({ heading, description, tags, status }: CardProps) => {
@@ -20,7 +21,7 @@ export const Card = ({ heading, description, tags, status }: CardProps) => {
                     <Tag key={index} name={tag} />
                 ))}
             </div>
-            <div className="status">{status}</div>
+            <StatusIndicator {...status} />
         </div>
     );
 };
