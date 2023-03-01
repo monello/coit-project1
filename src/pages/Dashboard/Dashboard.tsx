@@ -36,8 +36,9 @@ export const Dashboard = () => {
                 cards.map((card) => <Card key={card.id} {...card} />)}
             {!error && !isLoading && cards.length === 0 && (
                 <>
-                    There are currently no ticket to load. Click "Create Ticket"
-                    above to start.
+                    &#9888; There are currently no tickets to load.
+                    <br />
+                    Click "Create Ticket" above to start.
                 </>
             )}
         </>
