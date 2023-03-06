@@ -1,21 +1,64 @@
 {
-    "statuses": [
-        {
-            "variant": "pending",
-            "label": "Pending"
-        },
-        {
-            "variant": "in-progress",
-            "label": "In Progress"
-        },
-        {
-            "variant": "impeded",
-            "label": "Impeded"
-        },
-        {
-            "variant": "done",
-            "label": "Done"
-        }
-    ],
-    "cards": []
+  "statuses": [
+    {
+      "variant": "pending",
+      "label": "Pending"
+    },
+    {
+      "variant": "in-progress",
+      "label": "In Progress"
+    },
+    {
+      "variant": "impeded",
+      "label": "Impeded"
+    },
+    {
+      "variant": "done",
+      "label": "Done"
+    }
+  ],
+  "cards": [
+    {
+      "heading": "Ticket Heading",
+      "description": "Annual Leave",
+      "tags": "foo, bar, foobar",
+      "status": "in-progress",
+      "id": 1
+    },
+    {
+      "heading": "New Ticket",
+      "description": "Dusseldorf - Warsaw",
+      "tags": "tag a, tag b",
+      "status": "done",
+      "id": 2
+    },
+    {
+      "heading": "Third",
+      "description": "Description of the third ticket goes here with a very long description",
+      "tags": "mama,dndnd, ddd",
+      "status": "impeded",
+      "id": 3
+    },
+    {
+      "heading": "Default The default",
+      "description": "The default",
+      "tags": "default, tag",
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "heading": "Ticket Heading",
+      "description": "Annual Leave",
+      "tags": "tag a, tag b",
+      "status": "in-progress",
+      "id": 5
+    },
+    {
+      "heading": "Ticket Heading",
+      "description": "Annual Leave",
+      "tags": "tag a, tag b",
+      "status": "pending",
+      "id": 6
+    }
+  ]
 }
