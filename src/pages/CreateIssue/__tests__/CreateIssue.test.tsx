@@ -17,6 +17,6 @@ describe("CreateIssue component", () => {
         // ASSERT
         expect(
             screen.getByRole("button", { name: "Create Ticket" })
-        ).toBeDisabled();
+        ).toBeEnabled();
     });
 });

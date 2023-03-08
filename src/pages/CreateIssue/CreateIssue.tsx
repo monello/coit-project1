@@ -17,7 +17,7 @@ interface Issue {
 export const CreateIssue = () => {
     const navigate = useNavigate();
     const [statuses, setStatuses] = useState<Status[]>([]);
-    const [buttonEnabled, setButtonEnabled] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(true);
 
     useEffect(() => {
         fetch("http://localhost:3500/statuses")
