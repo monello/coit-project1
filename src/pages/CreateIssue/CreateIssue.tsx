@@ -36,10 +36,12 @@ export const CreateIssue = () => {
     };
 
     // getting the event handlers from our custom hook
-    const { onChange, onSelectChange, onSubmit, values } = useForm(
+    const { onChange, onSubmit, values } = useForm(
         createTicketCallback,
         initialState
     );
+
+    useEffect(() => console.log("VALUES:", values), [values]);
 
     // a submit function that will execute upon form submission
     async function createTicketCallback() {
@@ -80,7 +82,7 @@ export const CreateIssue = () => {
                             type="text"
                             value={values.heading}
                             placeholder="Enter a heading"
-                            onChange={onChange}
+                            onChange={(e) => onChange<HTMLInputElement>(e)}
                             required
                         />
                     </label>
@@ -95,7 +97,7 @@ export const CreateIssue = () => {
                             type="text"
                             value={values.description}
                             placeholder="Enter a description"
-                            onChange={onChange}
+                            onChange={(e) => onChange<HTMLInputElement>(e)}
                             required
                         />
                     </label>
@@ -110,7 +112,7 @@ export const CreateIssue = () => {
                             type="text"
                             value={values.tags}
                             placeholder="Comma separated tags"
-                            onChange={onChange}
+                            onChange={(e) => onChange<HTMLInputElement>(e)}
                             required
                         />
                     </label>
@@ -122,7 +124,7 @@ export const CreateIssue = () => {
                         <select
                             name="status"
                             id="status"
-                            onChange={onSelectChange}
+                            onChange={(e) => onChange<HTMLSelectElement>(e)}
                             defaultValue={values.status}
                         >
                             {statuses.map(({ variant, label }) => (

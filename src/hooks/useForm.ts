@@ -1,17 +1,12 @@
 import { useState } from "react";
 
+type OnChangeElements = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+
 /* https://dev.to/karan316/build-forms-using-react-the-easy-way-with-typescript-46bh */
-export const useForm = <T,>(callback: () => Promise<any>, initialState: T) => {
+export const useForm = <T>(callback: () => Promise<any>, initialState: T) => {
     const [values, setValues] = useState(initialState);
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValues({
-            ...values,
-            [event.target.name]: event.target.value
-        });
-    };
-
-    const onSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const onChange = <U extends OnChangeElements>(event: React.ChangeEvent<U>) => {
         setValues({
             ...values,
             [event.target.name]: event.target.value
@@ -26,7 +21,6 @@ export const useForm = <T,>(callback: () => Promise<any>, initialState: T) => {
 
     return {
         onChange,
-        onSelectChange,
         onSubmit,
         values,
     };
