@@ -1,6 +1,5 @@
 import React from "react";
-import { DemoDebounce } from "../../components/sandbox/DemoDebounce";
-import { DemoToggle } from "../../components/sandbox/DemoToggle/DemoToggle";
+import { DemoDebounce, DemoToggle } from "../../components/sandbox";
 
 export const SandBox = () => {
     return (
