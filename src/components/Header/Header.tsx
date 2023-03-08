@@ -11,6 +11,9 @@ export const Header = () => {
             <li className="item">
                 <NavLink to="/create">Create Ticket</NavLink>
             </li>
+            <li className="item">
+                <NavLink to="/sandbox">Sandbox</NavLink>
+            </li>
         </ul>
     );
 };
